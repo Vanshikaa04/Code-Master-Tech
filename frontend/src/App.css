@@ -1,0 +1,49 @@
+:root{
+    --bgcolor : #2E1A47;
+    --bgcolor2 : rgba(239, 207, 255, 0.365);
+
+    --textcolor:  #E8FFF9;
+     --animate-duration: 800ms;
+  --animate-delay: 0.01s;
+}
+
+.bgsection{
+  background :url(/bgtype.jpg) ;
+    background-position: 'center';
+    background-repeat: no-repeat;
+  /* background-size: 100% 100%; */
+ background-color: rgba(255, 255, 255, 0.2);
+height: fit-content;
+}
+.bgsection2{
+  background :url(white.png) ;
+    background-position: 'center';
+    background-repeat: no-repeat;
+  background-size: 100% 100%;}
+
+
+.extra{
+  font-style: italic;
+  color: rgb(231, 121, 25);
+  text-decoration: underline;
+  font-family:'Times New Roman', Times, serif;
+  letter-spacing: 1px;
+  margin: 0.6%;
+  font-size: 2.4rem;  
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--textcolor);
+  padding: 1rem;
+  width: 100%;
+
+  /* background-color: transparent; */
+}
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}

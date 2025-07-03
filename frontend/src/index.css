@@ -1,0 +1,9 @@
+/* :root{
+    --bgcolor : #2E1A47;
+    --textcolor:  #E8FFF9;
+     --animate-duration: 800ms;
+  --animate-delay: 0.01s;
+}
+body{
+  background-color: var(--bgcolor);
+} */

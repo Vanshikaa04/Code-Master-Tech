@@ -1,0 +1,133 @@
+.company-page {
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: -10px;
+  width: 100%;
+}
+
+.hero-section {
+  /* background :url(/companybg.png) ;
+    background-position: 'center';
+    background-repeat: no-repeat;
+  background-size: 100% 100%; */
+ background-color:var(--bgcolor);
+  /* border: 1px solid red; */
+  height: 90vh;
+}
+
+
+.about-us-section,
+.clients-section,
+.blog-section {
+  background-color: #fff;
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #4e54c8;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fade 1s ease forwards;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease forwards;
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom {
+  animation: zoom 0.5s ease-out forwards;
+}
+
+.custom-shape-divider-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top svg {
+  position: relative;
+  display: block;
+  width: calc(140% + 1.3px);
+  height: 100px;
+  transform: rotate(180deg); /* Flip for top */
+}
+
+.custom-shape-divider-top .shape-fill {
+  fill: #ffffff; /* Match your section background */
+}
+
+/* Bottom SVG for About Section */
+.custom-shape-divider-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(140% + 1.3px);
+  height: 80px;
+}
+
+.custom-shape-divider-bottom .shape-fill {
+  fill: #ffffff; /* Match next section background */
+}
+
+
+.hero-section {
+  border: none !important;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bgcolor, #1a1a1a); /* Your brand color or dark bg */
+}
+
+img {
+  border: none;
+  outline: none;
+}

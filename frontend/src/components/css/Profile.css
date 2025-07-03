@@ -1,0 +1,69 @@
+.profile-section {
+  /* background-color: var(--textcolor); */
+  color: var(--bgcolor);
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.profile-img-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  position: relative;
+  border: 5px solid var(--bgcolor);
+}
+
+/* Moving animated border */
+.img-border {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00bfff, #ff00ff);
+  animation: spinBorder 3s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spinBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(-bgcolor);
+}
+
+.profile-role {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: var(-bgcolor);
+}

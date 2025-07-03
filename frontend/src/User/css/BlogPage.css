@@ -1,0 +1,19 @@
+.blog-card {
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+}
+
+.blog-page img {
+  max-height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+  color: #6c757d !important;
+}

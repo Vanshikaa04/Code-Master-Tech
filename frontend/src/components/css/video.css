@@ -1,0 +1,9 @@
+.video-section {
+  padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+  .video-section {
+    text-align: center;
+  }
+}

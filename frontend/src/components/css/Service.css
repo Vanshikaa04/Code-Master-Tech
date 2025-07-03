@@ -1,0 +1,127 @@
+/* :root {
+  --textcolor: #ffffff;
+  --textcolor: #000000;
+} */
+
+.animated-card {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: var(--textcolor);
+  color: var(--bgcolor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 4px 4px 2px rgb(84, 76, 76);
+
+}
+
+/* Moving animated border background */
+.animated-card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 130%;
+  background-image: linear-gradient(180deg, rgb(79, 240, 4), rgb(248, 63, 7));
+  animation: rotBGimg 3s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inner layer above animation */
+.animated-card::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: var(--textcolor);
+  border-radius: 15px;
+  z-index: 1;
+}
+
+/* Hover overlay expansion */
+.animated-card::before,
+.animated-card::after {
+  transition: all 0.5s ease;
+}
+
+.animated-card:hover::before,
+.animated-card:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+   background-color: var(--bgcolor);
+
+}
+
+/* Top-right & bottom-left blobs (Eslam Hany style) */
+.animated-card::before-top,
+.animated-card::after-bottom {
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  background-color: rgba(12, 48, 59, 0.5);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.animated-card::before-top {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.animated-card::after-bottom {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+
+.animated-card:hover::before-top,
+.animated-card:hover::after-bottom {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+/* Content Styling */
+.card-title {
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.card-description {
+  z-index: 2;
+  position: absolute;
+  opacity: 0;
+  padding: 20px;
+  font-size: 16px;
+  color: var(--textcolor);
+  transition: opacity 0.5s ease;
+   /* background-color: var(--bgcolor); */
+}
+
+.animated-card:hover .card-title {
+  opacity: 0;
+}
+
+.animated-card:hover .card-description {
+  opacity: 1;
+
+}

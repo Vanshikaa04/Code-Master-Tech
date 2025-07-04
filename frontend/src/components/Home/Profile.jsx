@@ -13,7 +13,7 @@ const profiles = [
   },
   {
     name: "Vanshika Wadhwani",
-    designation: "Developer",
+    designation: "Full Stack Developer",
     image: vani,
   },
 ];

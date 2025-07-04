@@ -22,33 +22,33 @@ connectCloudinary()
 
 //middlewares
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
 
 
-// const allowedOrigins = [
-//     'http://localhost:5173',
-//     'http://localhost:5174',
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5174',
+"http://localhost:2004",
+      "https://cmt-backend-n70j.onrender.com/",
 
-//       "http://localhost:3080",
-
-//   ];
+  ];
   
-//   const corsOptions = {
-//     origin: function (origin, callback) {
-//       // Allow non-browser tools like Postman
-//       if (!origin) return callback(null, true);
+  const corsOptions = {
+    origin: function (origin, callback) {
+      // Allow non-browser tools like Postman
+      if (!origin) return callback(null, true);
   
-//       if (allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         console.error(' CORS blocked origin:', origin);
-//         callback(new Error('Not allowed by CORS'));
-//       }
-//     },
-//     credentials: true, // if using cookies or Authorization headers
-//   };
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.error(' CORS blocked origin:', origin);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true, // if using cookies or Authorization headers
+  };
   
-//   app.use(cors(corsOptions));
+  app.use(cors(corsOptions));
   
 // //api endpoints
 app.use('/api/user',router)

@@ -1,16 +1,8 @@
-/* .sidebar {
-  width: 250px;
-  transition: width 0.3s ease;
-} */
-.sidebar-closed {
-  width: 0 !important;
-  padding: 0 !important;
-}
 .sidebar {
   width: 250px;
-  transition: transform 0.s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   overflow: hidden;
-
+  background-color: #212529; /* optional for dark bg */
 }
 
 .sidebar-open {
@@ -25,8 +17,4 @@
   .sidebar {
     transform: translateX(0) !important;
   }
-}
-.main-content {
-  transition: margin-left 0.3s;
-  padding: 1rem;
 }

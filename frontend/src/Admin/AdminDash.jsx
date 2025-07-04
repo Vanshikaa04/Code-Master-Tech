@@ -19,7 +19,9 @@ import { MainContext } from "../context/MainContext";
 
 const AdminDash = ({ token, setToken, setUser }) => {
   const { backendurl } = useContext(MainContext);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(
+    () => window.innerWidth >= 992
+  );
   const isHome = location.pathname === "/admin";
   const [counts, setCounts] = useState({
     students: 0,
@@ -28,9 +30,13 @@ const AdminDash = ({ token, setToken, setUser }) => {
     batches: 0,
     pending: 0,
     internships: 0,
-    degree:0,
-    collegestud: 0
+    degree: 0,
+    collegestud: 0,
   });
+  useEffect(() => {
+    const isLargeScreen = window.innerWidth >= 992; // Bootstrap lg breakpoint
+    setSidebarOpen(isLargeScreen); // open only on large screens
+  }, []);
 
   const navigate = useNavigate();
 
@@ -46,40 +52,53 @@ const AdminDash = ({ token, setToken, setUser }) => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const [studentsRes, internsRes, coursesRes, batchesRes, internshipRes, degreeRes, collegeStudentsRes] =
-          await Promise.all([
-            axios.get(`${backendurl}/api/user/allstudents`, {
-              headers: { token },
-            }),
-            axios.get(`${backendurl}/api/intern/allinterns`, {
-              headers: { token },
-            }),
-            axios.get(`${backendurl}/api/course/listcourse`, {
-              headers: { token },
-            }),
-            axios.get(`${backendurl}/api/batch/allbatches`, {
-              headers: { token },
-            }),
-            axios.get(`${backendurl}/api/internship/listinternship`, {
-              headers: { token },
-            }),
-                        axios.get(`${backendurl}/api/degree/listdegree`, {
-              headers: { token },
-            }),
-                        axios.get(`${backendurl}/api/college/allstudents`, {
-              headers: { token },
-            }),
-          ]);
+        const [
+          studentsRes,
+          internsRes,
+          coursesRes,
+          batchesRes,
+          internshipRes,
+          degreeRes,
+          collegeStudentsRes,
+        ] = await Promise.all([
+          axios.get(`${backendurl}/api/user/allstudents`, {
+            headers: { token },
+          }),
+          axios.get(`${backendurl}/api/intern/allinterns`, {
+            headers: { token },
+          }),
+          axios.get(`${backendurl}/api/course/listcourse`, {
+            headers: { token },
+          }),
+          axios.get(`${backendurl}/api/batch/allbatches`, {
+            headers: { token },
+          }),
+          axios.get(`${backendurl}/api/internship/listinternship`, {
+            headers: { token },
+          }),
+          axios.get(`${backendurl}/api/degree/listdegree`, {
+            headers: { token },
+          }),
+          axios.get(`${backendurl}/api/college/allstudents`, {
+            headers: { token },
+          }),
+        ]);
 
         const allStudents = studentsRes.data.stud || [];
         const allInterns = internsRes.data.intern || [];
-        const collegeStudents =collegeStudentsRes.data.student || [];
+        const collegeStudents = collegeStudentsRes.data.student || [];
 
         setCounts({
           students:
-          studentsRes.data.stud?.filter((s) => s.status === "accepted").length || 0,
-          interns:internsRes.data.intern?.filter((i) => i.status === "accepted").length || 0,
-          collegestud: collegeStudentsRes.data.student?.filter((i) => i.status === "accepted").length || 0,
+            studentsRes.data.stud?.filter((s) => s.status === "accepted")
+              .length || 0,
+          interns:
+            internsRes.data.intern?.filter((i) => i.status === "accepted")
+              .length || 0,
+          collegestud:
+            collegeStudentsRes.data.student?.filter(
+              (i) => i.status === "accepted"
+            ).length || 0,
           courses: coursesRes.data.courses?.length || 0,
           batches: batchesRes.data.batches?.length || 0,
           internships: internshipRes.data.internships?.length || 0,
@@ -87,9 +106,9 @@ const AdminDash = ({ token, setToken, setUser }) => {
 
           pending:
             allStudents.filter((s) => s.status === "pending").length +
-            allInterns.filter((i) => i.status === "pending").length+collegeStudents.filter((c)=>c.status==="pending").length,
+            allInterns.filter((i) => i.status === "pending").length +
+            collegeStudents.filter((c) => c.status === "pending").length,
         });
-
       } catch (err) {
         console.error(err);
       }
@@ -106,10 +125,22 @@ const AdminDash = ({ token, setToken, setUser }) => {
         style={{ zIndex: 999 }}
       >
         <Container fluid>
-          <Navbar.Brand href="#" onClick={() => setSidebarOpen(!sidebarOpen)}>
-            <Menu className="me-2" /> Admin Panel
+          <Navbar.Brand
+            onClick={() => navigate("/admin")}
+            className="d-flex align-items-center gap-2"
+            style={{ cursor: "pointer" }}
+          >
+            <Menu
+              className="d-lg-none"
+              onClick={(e) => {
+                e.stopPropagation(); // prevent navigating when toggling
+                setSidebarOpen((prev) => !prev);
+              }}
+            />
+            Admin Panel
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+
+          {/* <Navbar.Toggle aria-controls="navbarScroll" /> */}
         </Container>
       </Navbar>
 
@@ -117,18 +148,17 @@ const AdminDash = ({ token, setToken, setUser }) => {
       <div>
         {/* Sidebar */}
         <div
-          className={`bg-dark text-white p-3 sidebar d-flex flex-column justify-content-between transition ${
+          className={`bg-dark text-white p-3 sidebar d-flex flex-column justify-content-between ${
             sidebarOpen ? "sidebar-open" : "sidebar-closed"
           }`}
           style={{
             position: "fixed",
-            top: "56px", // Below navbar
+            top: "56px",
             left: 0,
-            height: "calc(100vh - 56px)", // Full height below navbar
+            height: "calc(100vh - 56px)",
             width: "250px",
             zIndex: 998,
             overflowY: "auto",
-            transition: "left 0.3s",
           }}
         >
           {/* Sidebar Content */}
@@ -140,7 +170,7 @@ const AdminDash = ({ token, setToken, setUser }) => {
               >
                 <Home className="me-2" /> Home
               </Nav.Link>
-            
+
               <Nav.Link
                 className="text-white"
                 onClick={() => navigate("addstudent")}
@@ -175,10 +205,11 @@ const AdminDash = ({ token, setToken, setUser }) => {
         <div
           className="main-content"
           style={{
-            marginLeft: "250px", // Same as sidebar width
-            paddingTop: "70px", // Enough space for fixed navbar
+            marginLeft: sidebarOpen ? "250px" : "0",
+            paddingTop: "70px",
             paddingRight: "1rem",
             paddingLeft: "1rem",
+            transition: "margin-left 0.3s ease-in-out",
           }}
         >
           {isHome ? (
@@ -202,7 +233,7 @@ const AdminDash = ({ token, setToken, setUser }) => {
                     svg: "M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z",
                     path: "batches",
                   },
-                       {
+                  {
                     title: "Courses",
                     value: counts.courses,
                     color: "info",
@@ -223,21 +254,21 @@ const AdminDash = ({ token, setToken, setUser }) => {
                     svg: "M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z",
                     path: "allinterns",
                   },
-                            {
+                  {
                     title: "All College Students",
                     value: counts.collegestud,
                     color: "success",
                     svg: "M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z",
                     path: "collegestudents",
                   },
-                       {
+                  {
                     title: "Degrees",
                     value: counts.degree,
                     color: "info",
                     svg: "M12 2a10 10 0 00-6 18.2V14H4v-2h2v-2a6 6 0 0112 0v2h2v2h-2v6.2A10 10 0 0012 2z",
                     path: "degrees",
                   },
-             
+
                   {
                     title: "Internships",
                     value: counts.internships,

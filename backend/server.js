@@ -29,7 +29,7 @@ const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:5174',
 "http://localhost:2004",
-"https://code-master-tech-backend.vercel.app/"
+"https://code-master-tech-backend.vercel.app"
 
   ];
   

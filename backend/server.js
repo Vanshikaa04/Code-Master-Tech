@@ -29,8 +29,7 @@ const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:5174',
 "http://localhost:2004",
-      "https://cmt-backend-n70j.onrender.com",
-"  https://code-master-tech-backend.vercel.app/"
+"https://code-master-tech-backend.vercel.app/"
 
   ];
   

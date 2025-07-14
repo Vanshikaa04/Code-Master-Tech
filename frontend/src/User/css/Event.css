@@ -22,3 +22,8 @@
   font-style: italic;
   font-weight: bold;
 }
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

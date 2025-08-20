@@ -71,12 +71,13 @@ const Navtab = () => {
     }
   }, [location]);
 
-  const textColor = scrolled ? "var(--textcolor)" : "var(--bgcolor)";
+  const textColor = scrolled ? "var(--textcolor)" : "var(--textcolor)";
+    const titleColor = scrolled ? "var(--textcolor)" : "var(--bgcolor)";
   const backgroundColor = scrolled ? "var(--bgcolor)" : "transparent";
   const finallogo = scrolled ? logo : logo2;
 
   const dynamicStyle = {
-    color: textColor,
+    color: titleColor,
     background: "transparent",
     border: "none",
     boxShadow: "none",
@@ -111,21 +112,21 @@ const Navtab = () => {
       expanded={expanded}
       onToggle={(e) => setExpanded(e)}
       fixed="top"
-      className={`transition-all duration-300 px-4 py-4 ${scrolled ? "shadow-sm" : ""}`}
+      className={`transition-all duration-300 px-4 py-4 ${scrolled ? "shadow-sm" : ""}`} 
       style={{ backgroundColor, zIndex: 999 }}
     >
-      <Container>
+      <Container >
         <Navbar.Brand
           onClick={() => navigate("/")}
           className="brand-text"
           style={{
-            ...dynamicStyle,
+           color: titleColor,
             cursor: "pointer",
             fontWeight: "bold",
           }}
         >
-          <img src={finallogo} alt="Logo" style={{ height: "4.5vh", marginRight: "4px" }} />
-          CODE MASTER TECHNOLOGY
+          <img src={finallogo} alt="Logo" id="cmdlogo"/>
+        <span id="cmdtitle"> CODE MASTER TECHNOLOGY</span> 
         </Navbar.Brand>
 
         <Navbar.Toggle
@@ -143,7 +144,7 @@ const Navtab = () => {
                     e.stopPropagation();
                     navigate(courseMenu.to);
                   }}
-                  style={{ ...dynamicStyle, cursor: "pointer" }}
+                  style={{cursor: "pointer" }}
                 >
                   {courseMenu.label}
                 </span>
@@ -171,7 +172,7 @@ const Navtab = () => {
               <NavDropdown
                 key={idx}
                 title={
-                  <span style={{ ...dynamicStyle, cursor: "pointer" }}>
+                  <span style={{  cursor: "pointer" }}>
                     {menu.label}
                   </span>
                 }

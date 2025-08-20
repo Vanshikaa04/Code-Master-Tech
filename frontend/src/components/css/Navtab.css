@@ -4,7 +4,10 @@
   transition: font-size 0.3s ease;
   white-space: nowrap;
 }
-
+#cmdlogo{
+  height: 4.5vh;
+  margin-right: 0.7rem;
+}
 @media (max-width: 992px) {
   .brand-text {
     font-size: 1.25rem;
@@ -17,9 +20,46 @@
   }
 }
 
+/* Remove unwanted padding on small screens */
 @media (max-width: 576px) {
+  .navbar {
+    padding-left: 0 !important;
+    padding-right: 0;
+  }
+
+  .navbar .container {
+    display: flex;
+    align-items: center;   /* keeps brand & toggle vertically aligned */
+    justify-content: space-between;
+ 
+  }
+
   .brand-text {
-    font-size: 1rem;
+    display: flex;
+    align-items: center;   /* logo + text aligned */
+    font-size: 1rem;       /* responsive size */
+  }
+
+  #cmdlogo {
+    height: 4vh;
+    margin-right: 0.5rem;
+  }
+
+  .custom-toggle {
+    margin-top: 0 !important;  /* removes extra vertical shift */
+  }
+}
+
+@media  (max-width: 350px) {
+   #cmdlogo {
+    height: 3vh;
+    margin-right: 0.3rem;
+  }
+  .brand-text{
+    font-size: 0.8;
+  }
+  .custom-toggle{
+    width: 10px;
   }
 }
 
@@ -56,5 +96,27 @@
 }
 
 .toggle-black {
-  color: black;
+  color: black; 
+}
+
+@media (max-width: 992px) {
+  /* Collapsed menu background */
+  .navbar-collapse.show {
+    background-color: var(--bgcolor) !important;
+    padding: 1rem;
+  }
+
+  /* Links inside collapsed menu */
+  .navbar-collapse.show .nav-link,
+  .navbar-collapse.show .dropdown-item,
+
+  .navbar-collapse.show button   {
+    color: white !important;
+  }
+
+  /* Dropdown menu inside collapse */
+  .navbar-collapse.show .dropdown-menu {
+    background-color: var(--bgcolor) !important;
+    border: none;
+  }
 }

@@ -4,7 +4,10 @@ import vishv from "../../assets/projects/vishv.png";
 import rudra from "../../assets/projects/rudra.png";
 import rudrapfp from "../../assets/projects/rudrapfp.jpg";
 import vishvpfp from "../../assets/projects/vishvpfp.jpg";
-
+import harshil from "../../assets/projects/harshil.png"
+import harshilpfp from "../../assets/projects/harshilpfp.jpg"
+import hit from "../../assets/projects/hit.png"
+import hitpfp from "../../assets/projects/hitpfp.png"
 // Sample data
 const students = [
   {
@@ -20,6 +23,20 @@ const students = [
     profilePic: rudrapfp,
     projectImage: rudra,
     to: "https://admirable-gelato-191c06.netlify.app/"
+  },
+    {
+    name: "Harshil Raval",
+    age: 21,
+    profilePic: harshilpfp,
+    projectImage: harshil,
+    to: "https://urban-gym.netlify.app"
+  },
+  {
+    name: "Hit Chaudary",
+    age: 21,
+    profilePic: hitpfp,
+    projectImage:hit,
+    to: "https://timely-pastelito-b32c78.netlify.app/"
   }
 ];
 

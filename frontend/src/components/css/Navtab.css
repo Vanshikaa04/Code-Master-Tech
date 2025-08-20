@@ -1,13 +1,36 @@
+/* Navtab.css */
+@media (max-width: 576px) { 
+  .navbar
+   { 
+    padding-left: 0 !important; 
+    padding-right: 0  !important; ;
+   }
+
+ .navbar .container { 
+  display: flex;
+   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  
+ }
+ }
+
 /* Brand text responsiveness */
 .brand-text {
   font-size: 1.5rem;
   transition: font-size 0.3s ease;
-  white-space: nowrap;
+  white-space: nowrap; 
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-#cmdlogo{
+#cmdlogo {
   height: 4.5vh;
   margin-right: 0.7rem;
 }
+
 @media (max-width: 992px) {
   .brand-text {
     font-size: 1.25rem;
@@ -20,49 +43,77 @@
   }
 }
 
-/* Remove unwanted padding on small screens */
+/* Always align brand + toggle in one line for small screens */
 @media (max-width: 576px) {
-  .navbar {
-    padding-left: 0 !important;
-    padding-right: 0;
-  }
-
-  .navbar .container {
+  .nav-header-container {
     display: flex;
-    align-items: center;   /* keeps brand & toggle vertically aligned */
+    align-items: center;
     justify-content: space-between;
- 
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
   }
 
   .brand-text {
-    display: flex;
-    align-items: center;   /* logo + text aligned */
-    font-size: 1rem;       /* responsive size */
+    font-size: 1rem;
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   #cmdlogo {
     height: 4vh;
     margin-right: 0.5rem;
+    flex-shrink: 0;
   }
 
   .custom-toggle {
-    margin-top: 0 !important;  /* removes extra vertical shift */
+    margin-left: auto;
+    margin-top: 0 !important;
   }
 }
 
-@media  (max-width: 350px) {
-   #cmdlogo {
-    height: 3vh;
+@media (max-width: 420px) {
+  #cmdlogo {
+    height: 2vh;
     margin-right: 0.3rem;
   }
-  .brand-text{
-    font-size: 0.8;
-  }
-  .custom-toggle{
-    width: 10px;
+  .brand-text #cmdtitle {
+    font-size: 0.7rem;
   }
 }
 
+@media (max-width: 280px) {
+  /* shrink the toggle button */
+  .navbar-toggler {
+    padding: 0.15rem 0.25rem; /* smaller padding */
+    font-size: 0.8rem;        /* reduce clickable area */
+  }
+
+  /* shrink the hamburger icon itself */
+  .navbar-toggler-icon {
+    width: 12px;  /* default is 1.5em (~24px) */
+    height: 10px; 
+    background-size: 20px 20px; 
+  }
+    #cmdlogo {
+    height: 1.5vh;
+    margin-right: 0.2rem;
+  }
+  .brand-text #cmdtitle {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 230px)
+{
+  
+  #cmdtitle{
+    display: none;
+  }
+  #cmdlogo{
+    height: 4vh;
+  }
+}
 /* Custom toggle icon */
 .custom-toggle .navbar-toggler-icon {
   background-image: none;
@@ -72,7 +123,6 @@
   position: relative;
   display: inline-block;
 }
-
 .custom-toggle .navbar-toggler-icon::before,
 .custom-toggle .navbar-toggler-icon::after {
   content: "";
@@ -82,39 +132,38 @@
   position: absolute;
   left: 0;
 }
-
 .custom-toggle .navbar-toggler-icon::before {
   top: -8px;
-}
+  border: none;
 
+}
 .custom-toggle .navbar-toggler-icon::after {
   top: 8px;
-}
+  border: none;
 
+}
 .toggle-white {
   color: white;
+  border: none;
+
+} .toggle-black {
+  color: black;
+  border: none;
 }
 
-.toggle-black {
-  color: black; 
-}
-
+/* Collapsed menu bg + text color */
 @media (max-width: 992px) {
-  /* Collapsed menu background */
   .navbar-collapse.show {
     background-color: var(--bgcolor) !important;
     padding: 1rem;
   }
 
-  /* Links inside collapsed menu */
   .navbar-collapse.show .nav-link,
-  .navbar-collapse.show .dropdown-item,
-
-  .navbar-collapse.show button   {
+  .navbar-collapse.show .nav-dropdown-courses ,
+  .navbar-collapse.show button {
     color: white !important;
   }
 
-  /* Dropdown menu inside collapse */
   .navbar-collapse.show .dropdown-menu {
     background-color: var(--bgcolor) !important;
     border: none;

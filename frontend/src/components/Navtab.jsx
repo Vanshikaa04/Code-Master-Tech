@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MainContext } from "../context/MainContext";
-import { User } from "lucide-react";
+import { User, X } from "lucide-react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { HashLink } from "react-router-hash-link";
@@ -61,27 +61,36 @@ const Navtab = () => {
     fetchCourses();
   }, []);
 
+  const isHome = location.pathname === "/";
+
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (isHome) {
       const handleScroll = () => setScrolled(window.scrollY > 7);
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     } else {
       setScrolled(true);
     }
-  }, [location]);
+  }, []);
 
-  const textColor = scrolled ? "var(--textcolor)" : "var(--textcolor)";
-    const titleColor = scrolled ? "var(--textcolor)" : "var(--bgcolor)";
+
+
+
+
   const backgroundColor = scrolled ? "var(--bgcolor)" : "transparent";
+
   const finallogo = scrolled ? logo : logo2;
 
   const dynamicStyle = {
-    color: titleColor,
-    background: "transparent",
+    color: backgroundColor=="var(--bgcolor)"? "white": "var(--bgcolor)",
+    background: "transparent",  
     border: "none",
     boxShadow: "none",
   };
+
+  const menuTextStyle = expanded 
+  ? { color: "white" } 
+  : dynamicStyle;
 
   const staticMenus = [
     {
@@ -120,7 +129,7 @@ const Navtab = () => {
           onClick={() => navigate("/")}
           className="brand-text"
           style={{
-           color: titleColor,
+            ...dynamicStyle,
             cursor: "pointer",
             fontWeight: "bold",
           }}
@@ -130,7 +139,7 @@ const Navtab = () => {
         </Navbar.Brand>
 
         <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
+          // aria-controls="basic-navbar-nav"
           className={`custom-toggle ${scrolled ? "toggle-white" : "toggle-black"}`}
         />
 
@@ -144,7 +153,7 @@ const Navtab = () => {
                     e.stopPropagation();
                     navigate(courseMenu.to);
                   }}
-                  style={{cursor: "pointer" }}
+                  style={menuTextStyle}
                 >
                   {courseMenu.label}
                 </span>
@@ -172,7 +181,7 @@ const Navtab = () => {
               <NavDropdown
                 key={idx}
                 title={
-                  <span style={{  cursor: "pointer" }}>
+                  <span style={menuTextStyle}>
                     {menu.label}
                   </span>
                 }
@@ -207,7 +216,7 @@ const Navtab = () => {
           {token ? (
             <Dropdown align="end">
               <Dropdown.Toggle style={{ ...dynamicStyle }}>
-                <User color={textColor} />
+                <User color={dynamicStyle} />
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item onClick={() => navigate("/profile")}>

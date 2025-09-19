@@ -8,8 +8,8 @@
 
  .navbar .container { 
   display: flex;
-   align-items: center;
-  justify-content: space-between;
+   /* align-items: center;
+  justify-content: space-between; */
   width: 100%;
   
  }
@@ -31,7 +31,7 @@
   margin-right: 0.7rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .brand-text {
     font-size: 1.25rem;
   }
@@ -47,8 +47,8 @@
 @media (max-width: 576px) {
   .nav-header-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center; */
+    /* justify-content: space-between; */
     padding-left: 0;
     padding-right: 0;
     width: 100%;
@@ -75,24 +75,24 @@
 
 @media (max-width: 420px) {
   #cmdlogo {
-    height: 2vh;
+    height: 2.5vh;
     margin-right: 0.3rem;
   }
   .brand-text #cmdtitle {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
-
+/* 
 @media (max-width: 280px) {
-  /* shrink the toggle button */
+  /* shrink the toggle button 
   .navbar-toggler {
-    padding: 0.15rem 0.25rem; /* smaller padding */
-    font-size: 0.8rem;        /* reduce clickable area */
+    padding: 0.15rem 0.25rem; 
+    font-size: 0.8rem;     
   }
 
-  /* shrink the hamburger icon itself */
+
   .navbar-toggler-icon {
-    width: 12px;  /* default is 1.5em (~24px) */
+    width: 12px;  
     height: 10px; 
     background-size: 20px 20px; 
   }
@@ -103,16 +103,42 @@
   .brand-text #cmdtitle {
     font-size: 0.6rem;
   }
-}
-@media (max-width: 230px)
+} */
+@media (max-width: 280px)
 {
   
   #cmdtitle{
-    display: none;
+ font-size: 0.4rem;
+  }
+  #cmdlogo{
+    height: 2vh;
+    margin-right: 0%;
+  }
+   .custom-toggle  .navbar-toggler-icon {
+    padding: 0%;
+    width: 10px;
+    /* margin-right: 2px; */
+   }
+
+
+}
+@media (max-width: 270px)
+{
+  
+  #cmdtitle{
+ display: none;
   }
   #cmdlogo{
     height: 4vh;
+    margin-left: 2px;
   }
+   .custom-toggle  .navbar-toggler-icon {
+    padding: 0%;
+    width: 5px;
+    /* margin-right: 2px; */
+   }
+
+
 }
 /* Custom toggle icon */
 .custom-toggle .navbar-toggler-icon {
@@ -122,6 +148,7 @@
   background-color: currentColor;
   position: relative;
   display: inline-block;
+    background-size: 16px 16px; /* scale down the icon */
 }
 .custom-toggle .navbar-toggler-icon::before,
 .custom-toggle .navbar-toggler-icon::after {
@@ -152,7 +179,7 @@
 }
 
 /* Collapsed menu bg + text color */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .navbar-collapse.show {
     background-color: var(--bgcolor) !important;
     padding: 1rem;

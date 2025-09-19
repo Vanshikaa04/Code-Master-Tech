@@ -36,6 +36,9 @@ import CollegePage from "./User/CollegePage";
 import CompanyPage from "./User/CompanyPage";
 import AddCollegeStudent from "./Admin/AddCollegeStudent";
 import BlogPage from "./User/BlogPage";
+import Certificate from "./User/Certificate";
+import CertificateRegister from "./User/CertificateRegister";
+import CertificateRequests from "./Admin/CertificateRequests";
 
 const AppContent = () => {
   const { setToken, token, setUser, user } = useContext(MainContext);
@@ -72,7 +75,8 @@ const AppContent = () => {
           <Route path="/allcourses" element={<CoursesPage/>}/>
           <Route path="/college" element={<CollegePage/>}/>
           <Route path="/blog" element={<BlogPage/>}/>
-        
+          <Route path ="/certificate" element={<Certificate/>}/>
+          <Route path="/registercerti" element ={<CertificateRegister/>}/>
           <Route path="/company" element={<CompanyPage/>}/>
           <Route path='/course/:courseid' element={<CourseDetails/> }/>
 
@@ -95,7 +99,7 @@ const AppContent = () => {
           <Route path="courses" element={<Courses token={token} />} />
           <Route path="internships" element={<Internships token={token} />} />
           <Route path="degrees" element={<Degrees token={token} />} />
-
+            <Route path ="certificatesrequest"  element={<CertificateRequests token={token}/>}/>
           <Route path="addstudent" element={<AddStudent />} />
           <Route path="addintern" element={<AddIntern />} />
           <Route path="addcollegestudent" element={<AddCollegeStudent />} />

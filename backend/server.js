@@ -11,6 +11,7 @@ import internshiprouter from "./routes/InternshipProgramRoutes.js"
 import degreerouter from './routes/DegreeRoutes.js';
 import cstudentrouter from "./routes/CollegeRoutes.js"
 import adminrouter from "./routes/AdminRoutes.js"
+import certirouter from "./routes/CertificateRoutes.js"
 
 
 //App Config
@@ -61,6 +62,7 @@ app.use('/api/internship', internshiprouter)
 app.use('/api/degree', degreerouter)
 app.use('/api/college', cstudentrouter)
 app.use("/api/admin",adminrouter)
+app.use("/api/certificate",certirouter)
 
 
 

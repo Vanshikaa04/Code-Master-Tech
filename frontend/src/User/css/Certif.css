@@ -1,0 +1,89 @@
+.certificate-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* keeps certificate visible without enlarging */
+  margin: auto;
+}
+
+.certificate-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.certificate-content {
+  position: absolute;
+  top: 57%; /* adjust to align with blank space */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  font-family: "Times New Roman", serif;
+}
+
+.participant-name {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #a90000;
+    
+  /* margin-bottom: 25px; */
+}
+/* 
+.underline {
+  display: inline-block;
+  padding: 0 40px;
+} */
+
+.seminar-name {
+  /* display: inline-block; */
+  margin-top: 7%;
+  font-weight: bold;
+  font-size:1.5rem;
+}
+
+/* 📱 Responsive font scaling */
+@media (max-width: 992px) {
+  .participant-name {
+    font-size: 1.6rem;
+  }
+  .seminar-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .participant-name {
+    font-size: 1.4rem;
+  }
+  .seminar-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+    .certificate-content {
+        top:58%;
+    }
+  .participant-name {
+    font-size: 1rem;
+  }
+  .seminar-name {
+    font-size: 0.9rem;
+    margin-top: 7%; 
+  }
+}
+
+@media (max-width: 476px) {
+    .certificate-content {
+        top:60%;
+    }
+  .participant-name {
+    font-size: 0.7rem;
+  }
+  .seminar-name {
+    font-size: 0.7rem;
+    margin-top: 5%; 
+  }
+}

@@ -16,6 +16,7 @@ import { HashLink } from "react-router-hash-link";
 import logo from "../assets/images/Light_monogram.png";
 import logo2 from "../assets/images/Dark_monogram.png";
 import "./css/Navtab.css";
+import { Menu } from "lucide-react";
 
 const Navtab = () => {
   const navigate = useNavigate();
@@ -117,17 +118,17 @@ const Navtab = () => {
 
   return (
     <Navbar
-      expand="lg"
+      expand="xl"
       expanded={expanded}
       onToggle={(e) => setExpanded(e)}
       fixed="top"
       className={`transition-all duration-300 px-4 py-4 ${scrolled ? "shadow-sm" : ""}`} 
       style={{ backgroundColor, zIndex: 999 }}
     >
-      <Container >
+      <Container  className="d-flexp-0">
         <Navbar.Brand
           onClick={() => navigate("/")}
-          className="brand-text"
+          className="brand-textm-0"
           style={{
             ...dynamicStyle,
             cursor: "pointer",
@@ -138,13 +139,18 @@ const Navtab = () => {
         <span id="cmdtitle"> CODE MASTER TECHNOLOGY</span> 
         </Navbar.Brand>
 
-        <Navbar.Toggle
-          // aria-controls="basic-navbar-nav"
-          className={`custom-toggle ${scrolled ? "toggle-white" : "toggle-black"}`}
-        />
-
+       <Navbar.Toggle
+  aria-controls="basic-navbar-nav"
+  className="custom-toggle"
+>
+  {/* Custom Hamburger Icon */}
+  <Menu 
+ 
+    color={scrolled ? "white" : "black"} // 👈 scroll effect
+  />
+</Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto gap-2">
+          <Nav>
             {/* Courses Dropdown */}
             <NavDropdown
               title={
@@ -208,6 +214,9 @@ const Navtab = () => {
             </Nav.Link>
             <Nav.Link style={dynamicStyle} onClick={() => navigate("/blog")}>
               Blogs
+            </Nav.Link>
+             <Nav.Link style={dynamicStyle} onClick={() => navigate("/registercerti")}>
+              Get Certified
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

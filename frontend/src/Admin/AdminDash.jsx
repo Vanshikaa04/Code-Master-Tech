@@ -32,6 +32,7 @@ const AdminDash = ({ token, setToken, setUser }) => {
     internships: 0,
     degree: 0,
     collegestud: 0,
+    certificates:0,
   });
   useEffect(() => {
     const isLargeScreen = window.innerWidth >= 992; // Bootstrap lg breakpoint
@@ -60,6 +61,7 @@ const AdminDash = ({ token, setToken, setUser }) => {
           internshipRes,
           degreeRes,
           collegeStudentsRes,
+          certificateRes,
         ] = await Promise.all([
           axios.get(`${backendurl}/api/user/allstudents`, {
             headers: { token },
@@ -82,8 +84,12 @@ const AdminDash = ({ token, setToken, setUser }) => {
           axios.get(`${backendurl}/api/college/allstudents`, {
             headers: { token },
           }),
+               axios.get(`${backendurl}/api/certificate/allparticipants`, {
+            headers: { token },
+          }),
         ]);
 
+        const allparticipants =certificateRes.data.participants || [];
         const allStudents = studentsRes.data.stud || [];
         const allInterns = internsRes.data.intern || [];
         const collegeStudents = collegeStudentsRes.data.student || [];
@@ -103,11 +109,12 @@ const AdminDash = ({ token, setToken, setUser }) => {
           batches: batchesRes.data.batches?.length || 0,
           internships: internshipRes.data.internships?.length || 0,
           degree: degreeRes.data.degrees?.length || 0,
-
+         certificates : allparticipants.filter((p)=>p.status==="pending").length,
           pending:
             allStudents.filter((s) => s.status === "pending").length +
             allInterns.filter((i) => i.status === "pending").length +
             collegeStudents.filter((c) => c.status === "pending").length,
+        
         });
       } catch (err) {
         console.error(err);
@@ -227,19 +234,20 @@ const AdminDash = ({ token, setToken, setUser }) => {
                     path: "pendingreq",
                   },
                   {
+                    title: "Requested Certificates",
+                    value: counts.certificates,
+                    color: "danger",
+                    svg: "M12 2a10 10 0 100 20 10 10 0 000-20zM13 11h4v2h-4v4h-2v-4H7v-2h4V7h2v4z",
+                    path: "certificatesrequest",
+                  },
+                  {
                     title: "Batches",
                     value: counts.batches,
                     color: "warning",
                     svg: "M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z",
                     path: "batches",
                   },
-                  {
-                    title: "Courses",
-                    value: counts.courses,
-                    color: "info",
-                    svg: "M12 2a10 10 0 00-6 18.2V14H4v-2h2v-2a6 6 0 0112 0v2h2v2h-2v6.2A10 10 0 0012 2z",
-                    path: "courses",
-                  },
+          
                   {
                     title: "All Students",
                     value: counts.students,
@@ -260,6 +268,13 @@ const AdminDash = ({ token, setToken, setUser }) => {
                     color: "success",
                     svg: "M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z",
                     path: "collegestudents",
+                  },
+                          {
+                    title: "Courses",
+                    value: counts.courses,
+                    color: "info",
+                    svg: "M12 2a10 10 0 00-6 18.2V14H4v-2h2v-2a6 6 0 0112 0v2h2v2h-2v6.2A10 10 0 0012 2z",
+                    path: "courses",
                   },
                   {
                     title: "Degrees",

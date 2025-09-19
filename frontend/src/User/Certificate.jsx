@@ -21,7 +21,15 @@ const Certificate = () => {
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+     // Detect iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    if (isIOS) {
+      // Open in new tab instead of forcing download
+      window.open(pdf.output("bloburl"));
+    } else {
       pdf.save("E-Certificate.pdf");
+    }
     });
   };
 

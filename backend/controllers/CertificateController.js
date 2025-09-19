@@ -28,10 +28,20 @@ const updateStatus = async (req, res) => {
 
 
 const addParticipant = async (req, res) => {
-  const { phone, name, city, seminar } = req.body;
-
   try {
-    const exists = await certiModel.findOne({ name, phone, city, seminar });
+    let { phone, name, city, seminar } = req.body;
+
+    // Normalize name and city to lowercase before saving/searching
+    const normalizedName = name.trim().toLowerCase();
+    const normalizedCity = city.trim().toLowerCase();
+
+    // Check if participant already exists (case-insensitive for name & city)
+    const exists = await certiModel.findOne({
+      phone,
+      seminar,
+      name: normalizedName,
+      city: normalizedCity,
+    });
 
     if (exists) {
       if (exists.status === "pending") {
@@ -61,11 +71,11 @@ const addParticipant = async (req, res) => {
 
     // If new participant
     const newParticipant = new certiModel({
-      name,
+      name: normalizedName,  // save lowercase
       phone,
-      city,
+      city: normalizedCity,  // save lowercase
       seminar,
-      status: "pending", // ✅ default
+      status: "pending",
     });
 
     const participant = await newParticipant.save();
@@ -83,9 +93,10 @@ const addParticipant = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: error.message });
   }
 };
+
 
 
 const  allparticipants= async (req,res) => {

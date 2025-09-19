@@ -13,28 +13,20 @@ const Certificate = () => {
   const certRef = useRef(null);
 
   const downloadCertificate = () => {
-    const input = certRef.current;
+  const input = certRef.current;
+  html2canvas(input, { scale: 2 }).then((canvas) => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("l", "mm", "a4");
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
-    html2canvas(input, { scale: 2 }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("l", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-      if (isIOS) {
-        // Open in new tab for iOS (since direct download is blocked)
-        const blobUrl = pdf.output("bloburl");
-        window.open(blobUrl, "_blank");
-      } else {
-        // Normal download for desktop/Android
-        pdf.save("E-Certificate.pdf");
-      }
-    });
-  };
+    // Open PDF in new tab (iOS friendly)
+    const pdfBlob = pdf.output("blob");
+    const url = URL.createObjectURL(pdfBlob);
+    window.open(url, "_blank"); // 👈 works on iOS Safari/Chrome
+  });
+};
 
   return (
     <div className="container text-center my-4">

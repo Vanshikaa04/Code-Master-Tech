@@ -87,3 +87,12 @@
     margin-top: 5%; 
   }
 }
+.certificate-bg {
+  pointer-events: none; /* prevents right click & drag */
+}
+.no-download-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: transparent;
+  pointer-events: all;
+}

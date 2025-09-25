@@ -13,20 +13,23 @@ import "./css/Event.css";
 import { motion } from "framer-motion";
 
 const Events = () => {
-  const [activeTab, setActiveTab] = useState("upcoming");
+  const [activeTab, setActiveTab] = useState("previous");
 
   const upcomingEvent = {
-    title: "CyberShield: Defend Your Digital World",
-    description: `🔸 Explore how cybercriminals operate in today’s online world
-🔸 Understand common threats like phishing, data breaches, and social engineering
-🔸 Learn essential practices to protect your identity, devices, and digital footprint
-🔸 Get introduced to tools and strategies used by professionals in the cybersecurity industry`,
-    date: "July 26, 2025",
-    time: "-",
-    image: "/cyber.png",
+    title: "Basic Programming Workshop",
+    description: `🔸 Understand core programming concepts like variables, loops, and conditions
+🔸 Gain confidence to explore advanced languages and technologies
+🔸Develop logical and analytical thinking skills`,
+    date: "Will be announced soon",
+    time: "Will be announced soon",
+    image: "/hero.png",
   };
 
   const previousEvents = [
+    {
+      title: "Collabration With Pradhya Software Technologies",
+      images: ["/events/pradhya.png", "/events/pradhya1.jpg"],
+    },
     {
       title: "Wired For Future: A Beginner's Tech Guide",
       images: ["/events/e1.4.jpg","/events/e1.3.jpg","/events/e1.1.jpg","/events/e1.2.jpg"],

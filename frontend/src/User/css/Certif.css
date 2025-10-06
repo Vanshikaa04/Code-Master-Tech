@@ -1,8 +1,9 @@
 .certificate-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1000px; /* keeps certificate visible without enlarging */
-  margin: auto;
+  top: 0;
+  left: 0;
+  opacity: 0;           /* Invisible but still rendered */
+  pointer-events: none; /* Not clickable */
+  z-index: -1;  
 }
 
 .certificate-bg {

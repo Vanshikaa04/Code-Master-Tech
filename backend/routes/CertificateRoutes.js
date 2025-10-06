@@ -7,5 +7,6 @@ certirouter.post("/register", addParticipant);
 certirouter.get("/allparticipants", allparticipants);
 certirouter.post("/accept", updateStatus);
 certirouter.post("/remove", remove);
+// certirouter.post("/generate-certificate", generateCerti);
 
 export default certirouter

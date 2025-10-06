@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
             <p className="mt-3"><Mail/>    codemastertech7@gmail.com</p>
             <p className="mt-3"><Phone/>   8200588263</p>
-            <p className="mt-3"><MapPin/>  Damodar Complex, F-195, near Mahindra finance, Jawanpura, Idar, Gujarat 383430</p>
+            <p className="mt-3"><MapPin/> F-101  below Shanti Hospital  Damodar Complex, Idar Gujarat 383430</p>
 
 
           </Col>

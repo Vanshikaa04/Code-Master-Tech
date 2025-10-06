@@ -1,47 +1,52 @@
-import React, { useRef } from "react";
-import certi from "../assets/images/CMT Certificate .png"; // certificate template image
-import "./css/Certif.css";
+import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
-import html2canvas from "html2canvas";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import jsPDF from "jspdf";
+import certi from "../assets/images/CMT Certificate .png";
 
 const Certificate = () => {
   const { state } = useLocation();
-  const { name, seminar } = state || {};
+  const navigate = useNavigate();
 
-  const certRef = useRef(null);
+  // Redirect if no state found
+  useEffect(() => {
+    if (!state) {
+      navigate("/"); // redirect to homepage
+    }
+  }, [state, navigate]);
+
+  // destructure with fallback values
+  const { name = "Participant", seminar = "Seminar" } = state || {};
 
   const downloadCertificate = () => {
-  const input = certRef.current;
-  html2canvas(input, { scale: 2 }).then((canvas) => {
-    const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF("l", "mm", "a4");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
-    // Open PDF in new tab (iOS friendly)
-    const pdfBlob = pdf.output("blob");
-    const url = URL.createObjectURL(pdfBlob);
-    window.open(url, "_blank"); // 👈 works on iOS Safari/Chrome
-  });
-};
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+
+    // Add certificate background
+    pdf.addImage(certi, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+    // Add participant name
+    pdf.setFont("Times", "bold");
+    pdf.setFontSize(28);
+    pdf.setTextColor(169, 0, 0); // dark red
+    pdf.text(name.toUpperCase(), pdfWidth / 2, pdfHeight / 2, {
+      align: "center",
+    });
+
+    // Add seminar name
+    pdf.setFontSize(18);
+    pdf.setTextColor(0, 0, 0);
+    pdf.text(seminar, pdfWidth / 2, pdfHeight / 2 + 30, { align: "center" });
+
+    // Save certificate
+    pdf.save("certificate.pdf");
+  };
 
   return (
     <div className="container text-center my-4">
-      {/* Certificate Preview */}
-      <div className="certificate-wrapper mx-auto" ref={certRef}>
-        <img src={certi} alt="Certificate" className="certificate-bg" />
-
-        {/* Overlay Content */}
-        <div className="certificate-content">
-          <h2 className="participant-name underline">{name}</h2>
-          <p className="seminar-name">{seminar}</p>
-        </div>
-      </div>
-
-      {/* Download Button */}
+      <h3 className="mb-3">Download Your Certificate</h3>
       <Button
         className="mt-4 text-white"
         onClick={downloadCertificate}

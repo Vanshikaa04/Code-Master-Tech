@@ -141,7 +141,7 @@ const Navtab = () => {
 
        <Navbar.Toggle
   aria-controls="basic-navbar-nav"
-  className="custom-toggle"
+  className="custom-toggle border-0"
 >
   {/* Custom Hamburger Icon */}
   <Menu 

@@ -73,56 +73,52 @@
   }
 }
 
-@media (max-width: 420px) {
-  #cmdlogo {
-    height: 2.5vh;
-    margin-right: 0.3rem;
-  }
-  .brand-text #cmdtitle {
-    font-size: 0.9rem;
-  }
-}
-/* 
-@media (max-width: 280px) {
-  /* shrink the toggle button 
-  .navbar-toggler {
-    padding: 0.15rem 0.25rem; 
-    font-size: 0.8rem;     
-  }
 
-
-  .navbar-toggler-icon {
-    width: 12px;  
-    height: 10px; 
-    background-size: 20px 20px; 
-  }
-    #cmdlogo {
-    height: 1.5vh;
-    margin-right: 0.2rem;
-  }
-  .brand-text #cmdtitle {
-    font-size: 0.6rem;
-  }
-} */
-/* @media (max-width: 400px)
+@media (max-width: 420px)
 {
   
   #cmdtitle{
- font-size: 0.4rem;
+ font-size: 1rem;
   }
   #cmdlogo{
-    height: 2vh;
+    height: 3vh;
     margin-right: 0%;
   }
    .custom-toggle  .navbar-toggler-icon {
     padding: 0%;
     width: 10px;
-    /* margin-right: 2px;
-   /* } 
+     margin-right: 2px;
+    } 
 
-
-} */
-@media (max-width: 400px)
+}
+@media (max-width: 340px)
+{
+  
+  #cmdtitle{
+ font-size: 0.9rem;
+  }
+  #cmdlogo{
+    height: 3vh;
+    margin-right: 0%;
+  }
+.custom-toggle svg {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 0% !important;
+  }
+}
+@media (max-width: 310px)
+{
+  
+  #cmdtitle{
+ font-size: 0.8rem;
+  }
+  #cmdlogo{
+    height: 2.5vh;
+    margin-right: 0%;
+  }
+}
+@media (max-width: 280px)
 {
   
   #cmdtitle{
@@ -132,11 +128,11 @@
     height: 4vh;
     margin-left: 2px;
   }
-   .custom-toggle  .navbar-toggler-icon {
-    padding: 0%;
-    width: 5px;
-    /* margin-right: 2px; */
-   }
+.custom-toggle svg {
+    width: 25px !important;
+    height: 25px !important;
+    margin-right: 0% !important;
+  }
 
 
 }

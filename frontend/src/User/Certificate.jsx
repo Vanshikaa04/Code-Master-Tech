@@ -45,8 +45,8 @@ const Certificate = () => {
   };
 
   return (
-    <div className="container text-center my-4">
-      <h3 className="mb-3">Download Your Certificate</h3>
+    <div className="container text-center mt-4 align-content-center justify-content-center">
+      <h3 className="mb-3 mt-3">Download Your Certificate</h3>
       <Button
         className="mt-4 text-white"
         onClick={downloadCertificate}

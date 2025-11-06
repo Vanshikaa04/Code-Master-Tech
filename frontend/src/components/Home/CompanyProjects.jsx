@@ -3,6 +3,9 @@ import { Container, Row, Col, Card, Image, Button} from "react-bootstrap";
 import kanyashi from "../../assets/projects/kanyashi.png"
 import vani from "../../assets/projects/S.png"
 import kavya from "../../assets/projects/kavya.png"
+import das from "../../assets/projects/das.png"
+import dges from "../../assets/projects/dges.png"
+
 import {motion} from "framer-motion"
 
 // Sample data
@@ -26,6 +29,19 @@ const Companys = [
     to:" https://kavya-creation.com/"
 
   },
+        {
+    name: "Das Group",
+    projectImage: das,
+    to:" https://dasgroup.in/"
+
+  },
+        {
+    name: "DGES School",
+    projectImage: dges,
+    to:"https://dgesschool.com/"
+
+  },
+
  
 ];
 

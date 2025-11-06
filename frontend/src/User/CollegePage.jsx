@@ -104,13 +104,13 @@ const CollegePage = () => {
                   viewport={{ once: false, amount: 0.2 }}
                 >
                   <Card className="h-100 shadow-sm">
-                    {internship.image && (
+                    {/* {internship.image && (
                       <Card.Img
                         variant="top"
                         src={internship.image}
                         style={{ maxHeight: "200px", objectFit: "contain" }}
                       />
-                    )}
+                    )} */}
                     <Card.Body>
                       <Card.Title className="text-danger">
                         {internship.internship_name}

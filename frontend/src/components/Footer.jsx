@@ -7,7 +7,9 @@ import {
   Linkedin,
   Mail,
   Phone,
-  MapPin
+  MapPin,
+  FacebookIcon,
+  Youtube
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./css/Footer.css";
@@ -72,6 +74,10 @@ const Footer = () => {
               <a href="https://www.linkedin.com/company/code-master-technology/" className="text-white">
 
               <Linkedin size={24} />
+              </a>
+                <a href="https://youtube.com/@codemastertechnology-l2f?si=shHbuUwSQFnDnUWj" className="text-white">
+
+              <Youtube size={24} />
               </a>
             </div>
             <p className="mt-3"><Mail/>    codemastertech7@gmail.com</p>

@@ -8,7 +8,7 @@ import harshil from "../../assets/projects/harshil.png"
 import harshilpfp from "../../assets/projects/harshilpfp.jpg"
 import hit from "../../assets/projects/hit.png"
 import hitpfp from "../../assets/projects/hitpfp.png"
-import ujavalpfp from "../../assets/projects/ujaval.jpg"
+import ujavalpfp from "../../assets/projects/ujavalpfp.jpg"
 import ujaval from "../../assets/projects/ujaval.png"
 
 // Sample data

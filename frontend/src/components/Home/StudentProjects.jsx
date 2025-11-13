@@ -10,6 +10,7 @@ import hit from "../../assets/projects/hit.png"
 import hitpfp from "../../assets/projects/hitpfp.png"
 import ujavalpfp from "../../assets/projects/ujaval.jpg"
 import ujaval from "../../assets/projects/ujaval.png"
+
 // Sample data
 const students = [
   {
@@ -44,7 +45,7 @@ const students = [
     name: "Ujaval Patel",
     age: 19,
     profilePic: ujavalpfp,
-    projectImage :ujaval,
+    projectImage: ujaval,
     to: "https://ujavaljr.github.io/ujaval/"
   },
   

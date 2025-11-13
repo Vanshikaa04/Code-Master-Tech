@@ -8,6 +8,7 @@ import harshil from "../../assets/projects/harshil.png"
 import harshilpfp from "../../assets/projects/harshilpfp.jpg"
 import hit from "../../assets/projects/hit.png"
 import hitpfp from "../../assets/projects/hitpfp.png"
+import ujaval from "../../assets/projects/ujaval.jpg"
 // Sample data
 const students = [
   {
@@ -37,7 +38,15 @@ const students = [
     profilePic: hitpfp,
     projectImage:hit,
     to: "https://timely-pastelito-b32c78.netlify.app/"
-  }
+  },
+   {
+    name: "Ujaval Patel",
+    age: 19,
+    profilePic: hitpfp,
+    projectImage :ujaval,
+    to: "https://ujavaljr.github.io/ujaval/"
+  },
+  
 ];
 
 // Framer motion animation variants

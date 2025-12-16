@@ -10,6 +10,10 @@ import hit from "../../assets/projects/hit.png"
 import hitpfp from "../../assets/projects/hitpfp.png"
 import ujavalpfp from "../../assets/projects/ujavalpfp.jpg"
 import ujaval from "../../assets/projects/ujaval.png"
+import maitri from "../../assets/projects/maitri.png"
+import maitripfp from "../../assets/projects/maitripfp.jpg"
+import soniya from "../../assets/projects/soniya.png"
+import soniyapfp from "../../assets/projects/soniyapfp.jpg"
 
 // Sample data
 const students = [
@@ -20,12 +24,26 @@ const students = [
     projectImage: vishv,
     to: "https://vishvlimbchiya.in/"
   },
+    {
+    name: "Maitri Joshi",
+    age: 13,
+    profilePic: maitripfp,
+    projectImage: maitri,
+    to: "https://dashing-haupia-8b060e.netlify.app/"
+  },
   {
     name: "Nayak Rudra",
     age: 20,
     profilePic: rudrapfp,
     projectImage: rudra,
     to: "https://admirable-gelato-191c06.netlify.app/"
+  },
+    {
+    name: "Soniya Makavana",
+    age: 13,
+    profilePic: soniyapfp,
+    projectImage: soniya,
+    to: "https://legendary-cascaron-f68cea.netlify.app/#hero-appointment"
   },
     {
     name: "Harshil Raval",

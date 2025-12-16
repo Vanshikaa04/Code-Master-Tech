@@ -5,6 +5,7 @@ import vani from "../../assets/projects/S.png"
 import kavya from "../../assets/projects/kavya.png"
 import das from "../../assets/projects/das.png"
 import dges from "../../assets/projects/dges.png"
+import manav from "../../assets/projects/manav.png"
 
 import {motion} from "framer-motion"
 
@@ -41,7 +42,12 @@ const Companys = [
     to:"https://dgesschool.com/"
 
   },
+        {
+    name: "Manav Hospital",
+    projectImage: manav,
+    to:"https://manavhospital.in/"
 
+  },
  
 ];
 

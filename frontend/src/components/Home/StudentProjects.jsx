@@ -26,7 +26,7 @@ const students = [
   },
     {
     name: "Maitri Joshi",
-    age: 13,
+    age: 19,
     profilePic: maitripfp,
     projectImage: maitri,
     to: "https://dashing-haupia-8b060e.netlify.app/"
@@ -40,7 +40,7 @@ const students = [
   },
     {
     name: "Soniya Makavana",
-    age: 13,
+    age: 24,
     profilePic: soniyapfp,
     projectImage: soniya,
     to: "https://legendary-cascaron-f68cea.netlify.app/#hero-appointment"

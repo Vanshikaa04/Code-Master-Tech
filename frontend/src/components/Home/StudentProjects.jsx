@@ -7,7 +7,7 @@ import vishvpfp from "../../assets/projects/vishvpfp.jpg";
 import harshil from "../../assets/projects/harshil.png"
 import harshilpfp from "../../assets/projects/harshilpfp.jpg"
 import hit from "../../assets/projects/hit.png"
-import hitpfp from "../../assets/projects/hitpfp.png"
+import hitpfp from "../../assets/projects/hitpfp.jpg"
 import ujavalpfp from "../../assets/projects/ujavalpfp.jpg"
 import ujaval from "../../assets/projects/ujaval.png"
 import maitri from "../../assets/projects/maitri.png"
@@ -26,7 +26,7 @@ const students = [
   },
     {
     name: "Maitri Joshi",
-    age: 19,
+    age: 20,
     profilePic: maitripfp,
     projectImage: maitri,
     to: "https://dashing-haupia-8b060e.netlify.app/"

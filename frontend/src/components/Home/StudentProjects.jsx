@@ -43,7 +43,7 @@ const students = [
     age: 24,
     profilePic: soniyapfp,
     projectImage: soniya,
-    to: "https://legendary-cascaron-f68cea.netlify.app/#hero-appointment"
+    to: "https://legendary-cascaron-f68cea.netlify.app/"
   },
     {
     name: "Harshil Raval",

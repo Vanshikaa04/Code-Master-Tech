@@ -6,34 +6,37 @@ import kavya from "../../assets/projects/kavya.png"
 import das from "../../assets/projects/das.png"
 import dges from "../../assets/projects/dges.png"
 import manav from "../../assets/projects/manav.png"
+import arbuda from "../../assets/projects/arbuda.png"
 
 import {motion} from "framer-motion"
 
 // Sample data
 const Companys = [
 
-  {
-    name: "Kanyashi",
-    projectImage: kanyashi,
-    to:"https://kanyashi.com/"
 
-  },
     {
     name: "Soulful Scribble",
     projectImage: vani,
     to:"https://www.soulfulscribble.in/"
 
   },
-      {
-    name: "Kavya Creation",
-    projectImage: kavya,
-    to:" https://kavya-creation.com/"
 
-  },
         {
     name: "Das Group",
     projectImage: das,
     to:" https://dasgroup.in/"
+
+  },
+        {
+    name: "Arbuda Hospital",
+    projectImage: arbuda,
+    to:"https://arbudahospital.in/"
+
+  },
+        {
+    name: "Kavya Creation",
+    projectImage: kavya,
+    to:" https://kavya-creation.com/"
 
   },
         {
@@ -46,6 +49,12 @@ const Companys = [
     name: "Manav Hospital",
     projectImage: manav,
     to:"https://manavhospital.in/"
+
+  },
+    {
+    name: "Kanyashi",
+    projectImage: kanyashi,
+    to:"https://kanyashi.com/"
 
   },
  

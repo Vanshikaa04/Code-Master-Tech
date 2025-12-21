@@ -14,6 +14,8 @@ import maitri from "../../assets/projects/maitri.png"
 import maitripfp from "../../assets/projects/maitripfp.jpg"
 import soniya from "../../assets/projects/soniya.png"
 import soniyapfp from "../../assets/projects/soniyapfp.jpg"
+import dhruvpfp from "../../assets/projects/dhruvpfp.jpeg"
+import dhruv from "../../assets/projects/dhruv.png";
 
 // Sample data
 const students = [
@@ -66,7 +68,13 @@ const students = [
     projectImage: ujaval,
     to: "https://ujavaljr.github.io/ujaval/"
   },
-  
+     {
+    name: "Dhruv Prajapati",
+    age: 19,
+    profilePic: dhruvpfp,
+    projectImage: dhruv,
+    to: "https://adorable-alpaca-ab8de8.netlify.app/"
+  },
 ];
 
 // Framer motion animation variants

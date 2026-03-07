@@ -206,8 +206,8 @@ const Navtab = () => {
             ))}
 
             {/* Direct Links */}
-            <Nav.Link style={dynamicStyle} onClick={() => navigate("/quiz")}>
-              Quiz
+            <Nav.Link style={dynamicStyle} onClick={() => navigate("/projects")}>
+              Projects
             </Nav.Link>
             <Nav.Link style={dynamicStyle} onClick={() => navigate("/events")}>
               Events

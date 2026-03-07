@@ -79,6 +79,8 @@ const AppContent = () => {
           <Route path="/registercerti" element ={<CertificateRegister/>}/>
           <Route path="/company" element={<CompanyPage/>}/>
           <Route path='/course/:courseid' element={<CourseDetails/> }/>
+          <Route path="/project" element={<Projects/>}/>
+
 
             
         </Route>

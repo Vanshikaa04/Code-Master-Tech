@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import Profile from "../components/Home/Profile";
 import AboutUs from "../components/Home/AboutUs";
 import Video from "../components/Home/Video";
+import MobileApp from "../components/Home/MobileApp";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("students");
@@ -97,6 +98,77 @@ const Home = () => {
         </div>
       </section>
 
+      {/* BROCHURE SECTION */}
+<section className="py-5 bgsection">
+  <motion.h1
+    className="section-title text-center"
+    initial={{ x: -100, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    Course <span className="extra">Brochure</span>
+  </motion.h1>
+
+  <div className="d-flex justify-content-center mt-4 px-3 ">
+    <div style={{ width: "100%", maxWidth: "1000px" }} class="bgsection">
+      <iframe
+        src="https://online.flippingbook.com/view/622926681/"
+        width="100%"
+        height="600"
+        style={{ border: "none", borderRadius: "10px" }}
+        allowFullScreen
+        title="Course Brochure"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+{/* APP DOWNLOAD SECTION */}
+<section className="py-5 ">
+  <Container>
+    <div className="d-flex flex-column flex-md-row align-items-center justify-content-between">
+
+      {/* LEFT CONTENT */}
+      <div className="text-center text-md-start mb-4 mb-md-0" style={{ flex: 1 }}>
+        <h1 className="section-title">
+          Learn Anytime with Our <span className="extra">Mobile App</span>
+        </h1>
+
+        <p className="mt-3 lead">
+          Download our app for a smoother and more interactive learning experience. 
+          Access courses, practice projects, and stay connected with mentors 
+          anytime, anywhere through our e-learning platform.
+        </p>
+
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 d-inline-block"
+        >
+          <img
+            src="/google-play.png"
+            alt="Google Play"
+            style={{ height: "60px" }}
+          />
+        </a>
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="text-center" style={{ flex: 1 }}>
+        <img
+          src="/app-mockup.png"
+          alt="Mobile App"
+          className="img-fluid"
+          style={{ maxHeight: "400px", objectFit: "contain" }}
+        />
+      </div>
+
+    </div>
+  </Container>
+</section>
+
       {/* ABOUT SECTION */}
       <section className="aboutsect bgsection position-relative">
         {/* Top SVG Divider */}
@@ -113,6 +185,7 @@ const Home = () => {
             ></path>
           </svg>
         </div>
+
 
         <motion.h1
           className="section-title2 text-center"
@@ -178,22 +251,58 @@ const Home = () => {
       </section>
 
       {/* PROJECTS SECTION */}
-      <section className="projects-section py-5 bgsection2">
-        <div className="d-flex justify-content-center">
-          <Nav variant="pills" activeKey={activeTab} onSelect={(selectedKey) => setActiveTab(selectedKey)} className="projects-tabs px-2 py-2 rounded-pill">
-            <Nav.Item>
-              <Nav.Link eventKey="students" className="custom-pill">Student Projects</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="company" className="custom-pill">Company Projects</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </div>
-        <div className="mt-4">
-          {activeTab === "students" && <StudentProjects />}
-          {activeTab === "company" && <CompanyProjects />}
-        </div>
-      </section>
+<section className="projects-section py-5 bgsection2">
+
+  {/* DESKTOP TABS */}
+  <div className="d-none d-md-flex justify-content-center">
+    <Nav
+      variant="pills"
+      activeKey={activeTab}
+      onSelect={(selectedKey) => setActiveTab(selectedKey)}
+      className="projects-tabs px-2 py-2 rounded-pill"
+    >
+      <Nav.Item>
+        <Nav.Link eventKey="students" className="custom-pill">
+          Student Projects
+        </Nav.Link>
+      </Nav.Item>
+
+      <Nav.Item>
+        <Nav.Link eventKey="company" className="custom-pill">
+          Company Projects
+        </Nav.Link>
+      </Nav.Item>
+
+      <Nav.Item>
+        <Nav.Link eventKey="mobile" className="custom-pill">
+          Mobile Apps
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+  </div>
+
+  {/* MOBILE DROPDOWN */}
+  <div className="d-flex d-md-none justify-content-center">
+    <select
+      className="form-select w-75 text-center"
+      value={activeTab}
+      onChange={(e) => setActiveTab(e.target.value)}
+      style={{ maxWidth: "300px" }}
+    >
+      <option value="students">Student Projects</option>
+      <option value="company">Company Projects</option>
+      <option value="mobile">Mobile Apps</option>
+    </select>
+  </div>
+
+  {/* PROJECT CONTENT */}
+  <div className="mt-4">
+    {activeTab === "students" && <StudentProjects />}
+    {activeTab === "company" && <CompanyProjects />}
+    {activeTab === "mobile" && <MobileApp />}
+  </div>
+
+</section>
 
       {/* REVIEWS SECTION */}
       <section className="py-5 bgsection border">

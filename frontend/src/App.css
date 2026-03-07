@@ -1,6 +1,6 @@
 :root{
     --bgcolor : #2E1A47;
-    --bgcolor2 : rgba(239, 207, 255, 0.365);
+    --bgcolor2 : #efcfff5d;
 
     --textcolor:  #E8FFF9;
      --animate-duration: 800ms;
@@ -16,7 +16,7 @@
 height: fit-content;
 }
 .bgsection2{
-  background :url(white.png) ;
+  /* background :url(white.png) ; */
     background-position: 'center';
     background-repeat: no-repeat;
   background-size: 100% 100%;}

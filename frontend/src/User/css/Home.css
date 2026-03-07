@@ -280,3 +280,9 @@
     display: none;
   }
 }
+.projects-section select {
+  border-radius: 30px;
+  text-align: center;
+  padding: 10px;
+  font-weight: 500;
+}

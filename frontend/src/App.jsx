@@ -6,7 +6,6 @@ import 'animate.css';
 import Home from "./User/Home";
 import Navtab from "./components/Navtab";
 import Footer from "./components/Footer";
-import Projects from "./User/Projects";
 import Quiz from "./User/Quiz";
 import Contact from "./User/Contact";
 import Programs from "./User/Programs";
@@ -65,7 +64,7 @@ const AppContent = () => {
           <Route path="/" element={<Home />} />
 
         <Route element={<Layout/>}>
-          <Route path="/projects" element={<Projects />} />
+
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/programs" element={<Programs />} />
@@ -79,7 +78,7 @@ const AppContent = () => {
           <Route path="/registercerti" element ={<CertificateRegister/>}/>
           <Route path="/company" element={<CompanyPage/>}/>
           <Route path='/course/:courseid' element={<CourseDetails/> }/>
-          <Route path="/project" element={<Projects/>}/>
+         
 
 
             

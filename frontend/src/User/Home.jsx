@@ -99,7 +99,7 @@ const Home = () => {
       </section>
 
       {/* BROCHURE SECTION */}
-<section className="py-5 bgsection">
+{/* <section className="py-5 bgsection">
   <motion.h1
     className="section-title text-center"
     initial={{ x: -100, opacity: 0 }}
@@ -122,7 +122,7 @@ const Home = () => {
       ></iframe>
     </div>
   </div>
-</section>
+</section> */}
 
 {/* APP DOWNLOAD SECTION */}
 <section className="py-5 ">
